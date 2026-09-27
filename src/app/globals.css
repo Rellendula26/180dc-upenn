@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #ffffff;
+  --ink: #1d2b05;
+  --muted: #3e4a32;
+  --rule: #e6e6e6;
+  --navy: #1d2b05;
+  --brand: #6fa318;
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-paper: #ffffff;
+  --color-white: #ffffff;
+  --color-ink: #1d2b05;
+  --color-muted: #3e4a32;
+  --color-rule: #e6e6e6;
+  --color-navy: #1d2b05;
+  --color-navy-soft: #2a3c10;
+  --color-cobalt: #6fa318;
+  --color-penn: #6fa318;
+  --color-brand: #6fa318;
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --animate-drift: drift 22s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  from {
+    transform: scale(1.02);
+  }
+  to {
+    transform: scale(1.07) translate3d(0, -1.5%, 0);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 7.5rem;
+}
+
+body {
+  background: #ffffff;
+  color: var(--ink);
+}
+
+::selection {
+  background: var(--brand);
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -200%;
+  z-index: 60;
+  background: #fff;
+  color: var(--ink);
+  padding: 0.6rem 0.9rem;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 0.75rem;
+}
+
+.field {
+  width: 100%;
+  border: 1px solid #d5d5d5;
+  background: #fff;
+  color: var(--ink);
+  padding: 0.8rem 0.85rem;
+  font: inherit;
+  border-radius: 0;
+}
+
+.field:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-in {
+    animation: rise-in 1.05s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .rise-in {
+    animation: rise-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .slide-in {
+    animation: slide-in 0.95s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .flip-in {
+    animation: flip-in 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .ken-burns {
+    animation: drift 18s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(72px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes flip-in {
+  from {
+    opacity: 0;
+    transform: perspective(1000px) rotateY(48deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
