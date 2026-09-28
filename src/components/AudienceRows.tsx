@@ -31,7 +31,7 @@ export function AudienceRows() {
               className={cn("relative z-10", item.reverse ? "md:order-1" : undefined)}
             >
               <div className="relative overflow-hidden bg-[#f7f9f6] px-7 py-9 sm:px-10 sm:py-12">
-                {item.id === "analysts" ? (
+                {item.id === "clients" ? (
                   <Image
                     src="/brand/logo.png"
                     alt=""

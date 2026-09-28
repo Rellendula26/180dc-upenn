@@ -45,7 +45,12 @@ export function TeamDirectory({ members }: { members: TeamMember[] }) {
         const meta = teamGroupMeta[group];
 
         return (
-          <section key={group} className="mt-16" aria-labelledby={`group-${group}`}>
+          <section
+            key={group}
+            id={group === "alumni" ? "alumni" : undefined}
+            className="mt-16 scroll-mt-32"
+            aria-labelledby={`group-${group}`}
+          >
             <h2 id={`group-${group}`} className="font-serif text-3xl tracking-tight text-ink md:text-4xl">
               {meta.title}
             </h2>

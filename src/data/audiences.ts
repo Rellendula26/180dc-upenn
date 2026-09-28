@@ -15,14 +15,24 @@ export type Audience = {
 export const whatWeDo = {
   title: "What we do",
   body: "We provide socially conscious organizations with pro bono consulting. A Penn team takes one challenge, researches it, and develops a practical recommendation the organization can use.",
-  href: "/about",
-  link: "About us",
+  href: "/contact",
+  link: "Request Our Services",
   image: "/images/hero.jpg",
   imageAlt: "",
 } as const;
 
 // Campus photographs stand in until the chapter has its own. They are not pictures of Penn members.
 export const audiences: Audience[] = [
+  {
+    id: "clients",
+    title: "For clients",
+    body: "Work with students at the University of Pennsylvania on a challenge your organization is facing. Engagements are pro bono. A team researches the problem and leaves you with recommendations you can act on.",
+    href: "/contact",
+    link: "Request Our Services",
+    image: "/images/college-hall.jpg",
+    imageAlt: "College Hall at the University of Pennsylvania.",
+    flip: true,
+  },
   {
     id: "analysts",
     title: "For analysts",
@@ -31,16 +41,6 @@ export const audiences: Audience[] = [
     link: "Meet the team",
     image: "/images/locust-2024.jpg",
     imageAlt: "Students walking along Locust Walk at the University of Pennsylvania.",
-    flip: true,
-  },
-  {
-    id: "clients",
-    title: "For clients",
-    body: "Work with students at the University of Pennsylvania on a challenge your organization is facing. Engagements are pro bono. A team researches the problem and leaves you with recommendations you can act on.",
-    href: "/work",
-    link: "View our work",
-    image: "/images/college-hall.jpg",
-    imageAlt: "College Hall at the University of Pennsylvania.",
     reverse: true,
   },
   {

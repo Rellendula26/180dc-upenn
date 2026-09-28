@@ -6,12 +6,14 @@ import { Container } from "@/components/Container";
 import { Hero } from "@/components/Hero";
 import { HeroSlideshow } from "@/components/HeroSlideshow";
 import { InspirationBanner } from "@/components/InspirationBanner";
+import { PastClients } from "@/components/PastClients";
 import { PhotoGrid } from "@/components/PhotoGrid";
 import { ProcessTimeline } from "@/components/ProcessTimeline";
 import { ProjectCard } from "@/components/ProjectCard";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard";
+import { StatCounter } from "@/components/StatCounter";
 import { TextLink } from "@/components/TextLink";
 import { WhatWeDoBand } from "@/components/WhatWeDoBand";
 import { communityPhotos } from "@/data/community";
@@ -19,6 +21,7 @@ import { projectProcess } from "@/data/process";
 import { featuredProjects } from "@/data/projects";
 import { services } from "@/data/services";
 import { site } from "@/data/site";
+import { stats, statsNote } from "@/data/stats";
 
 export const metadata: Metadata = {
   title: { absolute: site.title },
@@ -35,11 +38,11 @@ export default function HomePage() {
         lede="World's largest student consultancy"
         actions={
           <>
-            <ButtonLink href="/join#apply" variant="inverse" className="min-w-40 px-8">
-              Apply Today
+            <ButtonLink href="/contact" variant="inverse" className="min-w-40 px-8">
+              Request Our Services
             </ButtonLink>
-            <ButtonLink href="/contact" variant="ghost">
-              Request Services
+            <ButtonLink href="/join#apply" variant="ghost">
+              Apply Today
             </ButtonLink>
           </>
         }
@@ -75,7 +78,6 @@ export default function HomePage() {
       </section>
 
       <WhatWeDoBand />
-      <AudienceRows />
 
       <section className="bg-white">
         <Container className="py-20 md:py-28">
@@ -90,6 +92,30 @@ export default function HomePage() {
               </Reveal>
             ))}
           </div>
+        </Container>
+      </section>
+
+      <PastClients />
+
+      <section className="relative overflow-hidden bg-navy text-white" aria-label="Chapter statistics">
+        <Image
+          src="/images/locust-2024.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/55" />
+        <Container className="relative z-10 py-16 md:py-20">
+          <SectionHeading tone="light" eyebrow="Impact" title="By the numbers." />
+          <div className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-3 lg:grid-cols-5">
+            {stats.map((stat, index) => (
+              <Reveal key={stat.id} delay={index * 80}>
+                <StatCounter value={stat.value} label={stat.label} icon={stat.icon} tone="light" />
+              </Reveal>
+            ))}
+          </div>
+          <p className="mt-8 max-w-xl text-sm text-white/70">{statsNote}</p>
         </Container>
       </section>
 
@@ -125,6 +151,8 @@ export default function HomePage() {
         </Container>
       </section>
 
+      <AudienceRows />
+
       <section className="border-t border-rule bg-paper">
         <Container className="grid items-center gap-12 py-20 md:py-28 lg:grid-cols-12">
           <div className="lg:col-span-5">
@@ -141,11 +169,11 @@ export default function HomePage() {
       <InspirationBanner
         actions={
           <>
-            <ButtonLink href="/join#apply" variant="inverse">
-              Apply Today
+            <ButtonLink href="/contact" variant="inverse">
+              Request Our Services
             </ButtonLink>
-            <ButtonLink href="/contact" variant="ghost">
-              Request Services
+            <ButtonLink href="/join#apply" variant="ghost">
+              Apply Today
             </ButtonLink>
           </>
         }

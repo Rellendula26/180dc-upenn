@@ -1,4 +1,4 @@
-export type TeamGroup = "executive" | "project-leader" | "consultant";
+export type TeamGroup = "executive" | "project-leader" | "consultant" | "alumni";
 
 export type TeamMember = {
   id: string;
@@ -11,6 +11,10 @@ export type TeamMember = {
   linkedin: string | null;
   /** Path under /public, e.g. "/images/team/jane.jpg". Null shows a portrait placeholder. */
   photo: string | null;
+  /** Alumni only. Current role after 180DC. */
+  currentRole?: string | null;
+  /** Alumni only. Current organization. */
+  currentOrganization?: string | null;
   placeholder: boolean;
 };
 
@@ -18,6 +22,7 @@ export const teamGroupOrder: TeamGroup[] = [
   "executive",
   "project-leader",
   "consultant",
+  "alumni",
 ];
 
 export const teamFilters: Array<{ id: TeamGroup | "all"; label: string }> = [
@@ -25,6 +30,7 @@ export const teamFilters: Array<{ id: TeamGroup | "all"; label: string }> = [
   { id: "executive", label: "Executive Board" },
   { id: "project-leader", label: "Project Leaders" },
   { id: "consultant", label: "Consultants" },
+  { id: "alumni", label: "Alumni" },
 ];
 
 export const teamGroupMeta: Record<
@@ -45,6 +51,11 @@ export const teamGroupMeta: Record<
     title: "Consultants",
     description:
       "Students staffed to a project team. Profiles are added as each roster is confirmed.",
+  },
+  alumni: {
+    title: "Alumni",
+    description:
+      "Former members of the chapter. Names, graduation years, and current roles are added once they are confirmed.",
   },
 };
 
@@ -132,5 +143,42 @@ export const teamMembers: TeamMember[] = [
     position: "Consultant",
     group: "consultant",
     ...unannounced,
+  },
+  // TODO: Replace each alumnus with a confirmed person. Do not invent names, employers, or years.
+  {
+    id: "alumnus-1",
+    position: "Former 180DC role",
+    group: "alumni",
+    currentRole: "Current role to be added",
+    currentOrganization: null,
+    ...unannounced,
+    classYear: "Graduation year",
+  },
+  {
+    id: "alumnus-2",
+    position: "Former 180DC role",
+    group: "alumni",
+    currentRole: "Current role to be added",
+    currentOrganization: null,
+    ...unannounced,
+    classYear: "Graduation year",
+  },
+  {
+    id: "alumnus-3",
+    position: "Former 180DC role",
+    group: "alumni",
+    currentRole: "Current role to be added",
+    currentOrganization: null,
+    ...unannounced,
+    classYear: "Graduation year",
+  },
+  {
+    id: "alumnus-4",
+    position: "Former 180DC role",
+    group: "alumni",
+    currentRole: "Current role to be added",
+    currentOrganization: null,
+    ...unannounced,
+    classYear: "Graduation year",
   },
 ];
