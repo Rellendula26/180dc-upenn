@@ -82,11 +82,22 @@ export function Navbar() {
               className={cn(
                 "inline-flex h-9 items-center rounded-full px-4 text-[0.72rem] font-medium uppercase tracking-[0.14em] transition-colors",
                 overlay
-                  ? "border border-white text-white hover:bg-white hover:text-ink"
-                  : "bg-brand text-white hover:bg-[#5d8a14]",
+                  ? "border border-white/70 text-white hover:bg-white hover:text-ink"
+                  : "text-ink ring-1 ring-inset ring-ink/20 hover:ring-ink",
               )}
             >
               Apply
+            </Link>
+            <Link
+              href="/contact"
+              className={cn(
+                "inline-flex h-9 items-center rounded-full px-4 text-[0.72rem] font-medium uppercase tracking-[0.14em] transition-colors",
+                overlay
+                  ? "bg-white text-ink hover:bg-white/90"
+                  : "bg-brand text-white hover:bg-[#5d8a14]",
+              )}
+            >
+              Request Services
             </Link>
           </nav>
 
@@ -125,10 +136,16 @@ export function Navbar() {
                   </li>
                 );
               })}
-              <li className="pt-4">
+              <li className="flex flex-col items-start gap-3 pt-4">
+                <Link
+                  href="/contact"
+                  className="inline-flex h-11 items-center rounded-full bg-brand px-5 text-sm font-medium uppercase tracking-[0.14em] text-white"
+                >
+                  Request Services
+                </Link>
                 <Link
                   href="/join#apply"
-                  className="inline-flex h-11 items-center rounded-full bg-brand px-5 text-sm font-medium uppercase tracking-[0.14em] text-white"
+                  className="inline-flex h-11 items-center rounded-full px-5 text-sm font-medium uppercase tracking-[0.14em] text-ink ring-1 ring-inset ring-ink/20"
                 >
                   Apply
                 </Link>

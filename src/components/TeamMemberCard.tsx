@@ -36,11 +36,17 @@ export function TeamMemberCard({
       >
         {member.name}
       </h3>
-      <p className="mt-2 text-sm leading-relaxed text-muted">
-        {member.school}
-        <span aria-hidden> · </span>
-        {member.major}
-      </p>
+      {member.group === "alumni" ? (
+        <p className="mt-2 text-sm leading-relaxed text-muted">
+          {[member.currentRole, member.currentOrganization].filter(Boolean).join(" · ")}
+        </p>
+      ) : (
+        <p className="mt-2 text-sm leading-relaxed text-muted">
+          {member.school}
+          <span aria-hidden> · </span>
+          {member.major}
+        </p>
+      )}
       <p className="text-sm text-muted">{member.classYear}</p>
       {member.linkedin ? (
         <a
