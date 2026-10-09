@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 180DC Penn Website
 
-## Getting Started
+A website implementation for 180 Degrees Consulting at the University of Pennsylvania. It presents the chapter, consulting services, past work, team directory, recruiting information, and a client inquiry form.
 
-First, run the development server:
+Built with Next.js App Router, React, TypeScript, Tailwind CSS, Framer Motion, and Lucide icons.
+
+## Run locally
+
+Use Node.js and npm:
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run lint
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Edit content
 
-## Learn More
+- `src/data/site.ts`: chapter settings, navigation, contact details, application URL, social links, and form endpoint.
+- Other files in `src/data/`: team, projects, services, clients, FAQs, and recruiting content.
+- `src/components/`: reusable page sections and the inquiry form.
+- `src/app/`: pages, metadata, sitemap, and robots configuration.
+- `public/images/` and `public/brand/`: images and logos.
 
-To learn more about Next.js, take a look at the following resources:
+Set `NEXT_PUBLIC_SITE_URL` to the production origin when deploying. Without it, the site configuration falls back to `http://localhost:3000`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Before launch
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The current configuration leaves the chapter email, application URL, social URLs, and inquiry endpoint unset. The inquiry form deliberately prevents delivery when no endpoint is configured. Add verified destinations in `src/data/site.ts` before expecting applications or client inquiries to arrive.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Review team/project content, photo credits, and ranking language before publishing. A finished-looking interface does not establish that every content claim is verified. There is no automated test script in `package.json`; build and lint results were not rerun for this documentation update.
